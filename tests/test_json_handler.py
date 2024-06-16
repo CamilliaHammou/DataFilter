@@ -29,22 +29,23 @@ class TestJSONHandler(unittest.TestCase):
     def test_load_json(self):
         data = json_handler.load_json(self.test_file_path)
         expected_data = [
-            {'id': '1', 'name': 'Cams', 'age': 20},
-            {'id': '2', 'name': 'Sog', 'age': 25}
+            {'id': 1, 'name': 'Cams', 'age': 20},
+            {'id': 2, 'name': 'Sog', 'age': 25}
         ]
         self.assertEqual(data, expected_data)
 
     def test_save_json(self):
         data_to_save = [
-            {'id': '3', 'name': 'Charlie', 'age': 35},
-            {'id': '4', 'name': 'Diana', 'age': 28}
+            {'id': 3, 'name': 'Charlie', 'age': 35},
+            {'id': 4, 'name': 'Diana', 'age': 28}
         ]
         test_save_path = 'tests/test_save_data.json'
         json_handler.save_json(data_to_save, test_save_path)
-        
-        saved_data = json_handler.load_json(test_save_path)
+
+        with open(test_save_path, 'r') as file:
+            saved_data = json.load(file)
         self.assertEqual(saved_data, data_to_save)
-        
+
         if os.path.exists(test_save_path):
             os.remove(test_save_path)
 
