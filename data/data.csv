@@ -1,5 +1,5 @@
-firstname,lastname,age,apprentice,grades
-Camillia,Hammou,25,True,90,85,88
-Denisa,Dudas,22,False,78,80,82
-Michael,Jackson,28,True,85,88,92
-Nathan,DaCuhna,24,False,92,89,94
+firstname,lastname,age,apprentice,grades,name,category,price,quantity
+Camillia,Hammou,25,True,"[90, 85, 88]",Item1,CategoryA,19.99,50
+Denisa,Dudas,22,False,"[78, 80, 82]",Item2,CategoryB,29.99,30
+Michael,Jackson,28,True,"[85, 88, 92]",Item3,CategoryA,39.99,20
+Nathan,DaCuhna,24,False,"[92, 89, 94]",Item4,CategoryC,49.99,10
