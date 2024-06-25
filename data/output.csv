@@ -1,0 +1,3 @@
+firstname,lastname,age,apprentice,grades,name,category,price,quantity
+Michael,Jackson,28,True,"[85, 88, 92]",Item3,CategoryA,39.99,20
+Camillia,Hammou,25,True,"[90, 85, 88]",Item1,CategoryA,19.99,50
