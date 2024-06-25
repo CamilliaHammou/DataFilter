@@ -1,0 +1,46 @@
+[
+  {
+    "firstname": "Michael",
+    "lastname": "Jackson",
+    "age": 28,
+    "apprentice": true,
+    "grades": [
+      85,
+      88,
+      92
+    ]
+  },
+  {
+    "firstname": "Camillia",
+    "lastname": "Hammou",
+    "age": 25,
+    "apprentice": true,
+    "grades": [
+      90,
+      85,
+      88
+    ]
+  },
+  {
+    "firstname": "Nathan",
+    "lastname": "DaCuhna",
+    "age": 24,
+    "apprentice": false,
+    "grades": [
+      92,
+      89,
+      94
+    ]
+  },
+  {
+    "firstname": "Denisa",
+    "lastname": "Dudas",
+    "age": 22,
+    "apprentice": false,
+    "grades": [
+      78,
+      80,
+      82
+    ]
+  }
+]
