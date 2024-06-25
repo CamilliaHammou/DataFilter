@@ -1,3 +1,5 @@
+
+
 class DataSorter:
     @staticmethod
     def sort_data(data_filter, field: str, reverse: bool = False):

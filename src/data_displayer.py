@@ -1,3 +1,5 @@
+
+
 class DataDisplayer:
     @staticmethod
     def display_data(data_filter):
