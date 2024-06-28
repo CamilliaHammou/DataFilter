@@ -17,9 +17,10 @@ from src.data_filter import DataFilter
 from src.data_sorter import DataSorter
 from src.data_displayer import DataDisplayer
 
+
 def main():
     data_filter = DataFilter()
-    
+
     while True:
         print("\nOptions:")
         print("1. Charger des données")
@@ -29,25 +30,25 @@ def main():
         print("5. Trier les données")
         print("6. Afficher les données")
         print("7. Quitter")
-        
+
         choice = input("Choisissez une option: ")
-        
+
         if choice == '1':
-            file_path = input("Entrez le chemin du fichier (par exemple, 'data/data.csv'): ")
-            file_format = input("Entrez le format du fichier (csv/json): ").lower()
-            if file_format in ['csv', 'json']:
+            file_path = input("Entrez le chemin du fichier (par exemple, 'data/data.xml'): ")
+            file_format = input("Entrez le format du fichier (csv/json/xml): ").lower()
+            if file_format in ['csv', 'json', 'xml']:
                 DataLoader.load_data(data_filter, file_path, file_format)
                 print("Données chargées avec succès.")
             else:
-                print("Format de fichier non valide. Veuillez entrer 'csv' ou 'json'.")
+                print("Format de fichier non valide. Veuillez entrer 'csv', 'json', ou 'xml'.")
         elif choice == '2':
-            file_path = input("Entrez le chemin pour sauvegarder le fichier (par exemple, 'data/output.csv'): ")
-            file_format = input("Entrez le format du fichier (csv/json): ").lower()
-            if file_format in ['csv', 'json']:
+            file_path = input("Entrez le chemin pour sauvegarder le fichier (par exemple, 'data/output.xml'): ")
+            file_format = input("Entrez le format du fichier (csv/json/xml): ").lower()
+            if file_format in ['csv', 'json', 'xml']:
                 DataSaver.save_data(data_filter, file_path, file_format)
                 print(f"Données sauvegardées avec succès dans {file_path}.")
             else:
-                print("Format de fichier non valide. Veuillez entrer 'csv' ou 'json'.")
+                print("Format de fichier non valide. Veuillez entrer 'csv', 'json', ou 'xml'.")
         elif choice == '3':
             StatsCalculator.display_stats(data_filter)
         elif choice == '4':

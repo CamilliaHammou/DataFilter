@@ -12,6 +12,7 @@
 
 from typing import Any, List, Dict
 
+
 class StatsCalculator:
     @staticmethod
     def display_stats(data_filter):
@@ -23,20 +24,25 @@ class StatsCalculator:
         for field in fields:
             values = [item[field] for item in data_filter.data]
             print(f"Champ: {field}")
-            
+
             if all(isinstance(v, (int, float)) for v in values):
                 print(f"  Min: {min(values)}")
                 print(f"  Max: {max(values)}")
-                print(f"  Moyenne: {sum(values) / len(values)}")
+                print(f"  Moyenne: {sum(values) / len(values):.2f}")
             elif all(isinstance(v, bool) for v in values):
                 true_count = sum(values)
                 false_count = len(values) - true_count
                 print(f"  % Vrai: {true_count / len(values) * 100:.2f}%")
                 print(f"  % Faux: {false_count / len(values) * 100:.2f}%")
             elif all(isinstance(v, list) for v in values):
+                if all(isinstance(item, (int, float)) for v in values for item in v):
+                    flattened = [item for sublist in values for item in sublist]
+                    print(f"  Min: {min(flattened)}")
+                    print(f"  Max: {max(flattened)}")
+                    print(f"  Moyenne globale: {sum(flattened) / len(flattened):.2f}")
                 lengths = [len(v) for v in values]
                 print(f"  Min longueur: {min(lengths)}")
                 print(f"  Max longueur: {max(lengths)}")
-                print(f"  Moyenne longueur: {sum(lengths) / len(lengths)}")
+                print(f"  Moyenne longueur: {sum(lengths) / len(lengths):.2f}")
             elif all(isinstance(v, str) for v in values):
                 print(f"  Nombre de valeurs uniques: {len(set(values))}")

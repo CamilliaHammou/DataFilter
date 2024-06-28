@@ -14,6 +14,7 @@ import csv
 import json
 from typing import List, Dict, Any
 from utils.type_converter import auto_convert
+import xml.etree.ElementTree as ET
 
 class DataLoader:
     @staticmethod
@@ -25,3 +26,15 @@ class DataLoader:
         elif file_format == 'json':
             with open(file_path, 'r') as jsonfile:
                 data_filter.data = json.load(jsonfile)
+        elif file_format == 'xml':
+            tree = ET.parse(file_path)
+            root = tree.getroot()
+            data_filter.data = []
+            for student in root.findall('student'):
+                student_data = {}
+                for elem in student:
+                    if elem.tag == 'grades':
+                        student_data[elem.tag] = [int(grade.text) for grade in elem.findall('grade')]
+                    else:
+                        student_data[elem.tag] = auto_convert(elem.text)
+                data_filter.data.append(student_data)
