@@ -34,21 +34,21 @@ def main():
         choice = input("Choisissez une option: ")
 
         if choice == '1':
-            file_path = input("Entrez le chemin du fichier (par exemple, 'data/data.xml'): ")
-            file_format = input("Entrez le format du fichier (csv/json/xml): ").lower()
-            if file_format in ['csv', 'json', 'xml']:
+            file_path = input("Entrez le chemin du fichier (par exemple, 'data/data.yaml'): ")
+            file_format = input("Entrez le format du fichier (csv/json/xml/yaml): ").lower()
+            if file_format in ['csv', 'json', 'xml', 'yaml']:
                 DataLoader.load_data(data_filter, file_path, file_format)
                 print("Données chargées avec succès.")
             else:
-                print("Format de fichier non valide. Veuillez entrer 'csv', 'json', ou 'xml'.")
+                print("Format de fichier non valide. Veuillez entrer 'csv', 'json', 'xml', ou 'yaml'.")
         elif choice == '2':
-            file_path = input("Entrez le chemin pour sauvegarder le fichier (par exemple, 'data/output.xml'): ")
-            file_format = input("Entrez le format du fichier (csv/json/xml): ").lower()
-            if file_format in ['csv', 'json', 'xml']:
+            file_path = input("Entrez le chemin pour sauvegarder le fichier (par exemple, 'data/output.yaml'): ")
+            file_format = input("Entrez le format du fichier (csv/json/xml/yaml): ").lower()
+            if file_format in ['csv', 'json', 'xml', 'yaml']:
                 DataSaver.save_data(data_filter, file_path, file_format)
                 print(f"Données sauvegardées avec succès dans {file_path}.")
             else:
-                print("Format de fichier non valide. Veuillez entrer 'csv', 'json', ou 'xml'.")
+                print("Format de fichier non valide. Veuillez entrer 'csv', 'json', 'xml', ou 'yaml'.")
         elif choice == '3':
             StatsCalculator.display_stats(data_filter)
         elif choice == '4':

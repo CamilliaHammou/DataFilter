@@ -13,6 +13,7 @@
 import csv
 import json
 import xml.etree.ElementTree as ET
+import yaml
 
 class DataSaver:
     @staticmethod
@@ -43,3 +44,6 @@ class DataSaver:
                         elem.text = str(value)
             tree = ET.ElementTree(root)
             tree.write(file_path, encoding="utf-8", xml_declaration=True)
+        elif file_format == 'yaml':
+            with open(file_path, 'w') as yamlfile:
+                yaml.dump(data_filter.data, yamlfile, default_flow_style=False)

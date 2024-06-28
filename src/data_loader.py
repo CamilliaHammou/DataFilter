@@ -15,6 +15,7 @@ import json
 from typing import List, Dict, Any
 from utils.type_converter import auto_convert
 import xml.etree.ElementTree as ET
+import yaml
 
 class DataLoader:
     @staticmethod
@@ -38,3 +39,6 @@ class DataLoader:
                     else:
                         student_data[elem.tag] = auto_convert(elem.text)
                 data_filter.data.append(student_data)
+        elif file_format == 'yaml':
+            with open(file_path, 'r') as yamlfile:
+                data_filter.data = yaml.safe_load(yamlfile)
