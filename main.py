@@ -52,14 +52,41 @@ def main():
         elif choice == '3':
             StatsCalculator.display_stats(data_filter)
         elif choice == '4':
+            print("Options de filtrage:")
+            print("1. Filtrage simple")
+            print("2. Filtrage avancé pour les chaînes")
+            print("3. Filtrage avancé pour les listes")
+            print("4. Comparaison entre deux champs")
+            print("5. Comparaison avec les statistiques globales")
+            filter_choice = input("Choisissez une option de filtrage: ")
+
             field = input("Entrez le nom du champ: ")
-            operator = input("Entrez l'opérateur (==, !=, <, <=, >, >=): ")
-            value = input("Entrez la valeur: ")
-            if operator in ['==', '!=', '<', '<=', '>', '>=']:
-                data_filter.filter_data(field, operator, value)
+
+            if filter_choice == '1':
+                operator = input("Entrez l'opérateur (==, !=, <, <=, >, >=): ")
+                value = input("Entrez la valeur: ")
+            elif filter_choice == '2':
+                operator = input("Entrez l'opérateur (contains, startswith, endswith): ")
+                value = input("Entrez la valeur: ")
+            elif filter_choice == '3':
+                operator = input("Entrez l'opérateur (all, any, min, max, avg): ")
+                value = input("Entrez la valeur: ")
+            elif filter_choice == '4':
+                operator = input("Entrez l'opérateur (==, !=, <, <=, >, >=): ")
+                field2 = input("Entrez le nom du deuxième champ: ")
+                data_filter.filter_data(field, operator, field2=field2)
                 print("Données filtrées.")
+                continue
+            elif filter_choice == '5':
+                operator = input("Entrez l'opérateur (above_avg, below_avg, above_percentile, below_percentile): ")
+                value = input("Entrez la valeur (pour les percentiles): ") if 'percentile' in operator else None
             else:
-                print("Opérateur non valide. Veuillez entrer un des suivants: ==, !=, <, <=, >, >=.")
+                print("Option de filtrage non valide.")
+                continue
+
+            data_filter.filter_data(field, operator, value)
+            print("Données filtrées.")
+
         elif choice == '5':
             field = input("Entrez le nom du champ pour le tri: ")
             reverse = input("Tri descendant? (o/n): ").lower() == 'o'

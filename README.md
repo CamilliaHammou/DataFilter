@@ -9,3 +9,13 @@ The aim of this project is to create a program for loading, saving, filtering, s
 - Filter CSV and json
 - Display Stats CSV and json
 - Interface Users
+
+# Part 2:
+- Loading XML and YAML
+- Saving XML and YAML
+- Display XML and YAML
+- Filter XML and YAML
+- Advanced Filter XML, YAML, JSON and CSV
+
+- Display Stats XML and YAML
+
