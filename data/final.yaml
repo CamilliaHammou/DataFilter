@@ -1,0 +1,32 @@
+- apprentice: true
+  firstname: Camillia
+  grades:
+  - 90
+  - 85
+  - 88
+  lastname: Hammou
+  test: 20
+- apprentice: false
+  firstname: Denisa
+  grades:
+  - 78
+  - 80
+  - 82
+  lastname: Dudas
+  test: 20
+- apprentice: true
+  firstname: Michael
+  grades:
+  - 85
+  - 88
+  - 92
+  lastname: Jackson
+  test: 20
+- apprentice: false
+  firstname: Nathan
+  grades:
+  - 92
+  - 89
+  - 94
+  lastname: DaCuhna
+  test: 20

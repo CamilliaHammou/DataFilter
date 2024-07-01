@@ -12,11 +12,11 @@
 
 from src.data_loader import DataLoader
 from src.data_saver import DataSaver
+from src.field_manager import FieldManager
 from src.stats_calculator import StatsCalculator
 from src.data_filter import DataFilter
 from src.data_sorter import DataSorter
 from src.data_displayer import DataDisplayer
-
 
 def main():
     data_filter = DataFilter()
@@ -29,7 +29,8 @@ def main():
         print("4. Filtrer les données")
         print("5. Trier les données")
         print("6. Afficher les données")
-        print("7. Quitter")
+        print("7. Gérer les champs")
+        print("8. Quitter")
 
         choice = input("Choisissez une option: ")
 
@@ -95,6 +96,8 @@ def main():
         elif choice == '6':
             DataDisplayer.display_data(data_filter)
         elif choice == '7':
+            FieldManager.manage_fields(data_filter)
+        elif choice == '8':
             print("Fermeture du programme.")
             break
         else:
